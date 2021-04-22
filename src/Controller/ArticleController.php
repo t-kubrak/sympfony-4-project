@@ -24,7 +24,8 @@ class ArticleController extends AbstractController
     public function show($slug)
     {
         return $this->render('article/show.html.twig', [
-           'title' => $slug
+            'title' => $slug,
+            'comments' => ['Comment 1', 'Comment 2', 'Comment 3']
         ]);
     }
 }
