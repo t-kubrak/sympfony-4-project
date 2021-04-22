@@ -11,20 +11,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
     public function homepage()
     {
-        return new Response("Tesst");
+        return $this->render('article/homepage.html.twig');
     }
 
     /**
-     * @Route("/news/{slug}")
+     * @Route("/news/{slug}", name="article_show")
      */
     public function show($slug)
     {
         return $this->render('article/show.html.twig', [
-            'title' => $slug,
+            'title' => ucwords(str_replace('-', ' ', $slug)),
             'comments' => ['Comment 1', 'Comment 2', 'Comment 3']
         ]);
     }
